@@ -58,12 +58,24 @@ function optionChanged(value) {
 
         Plotly.newPlot("bubble", bubbledata, bubblelayout);
 
-
         // Select Demographic Info and clear it then fill it in using key-value pairs
         d3.select("#sample-metadata").html("");
         Object.entries(metadata).forEach(([key, value]) => {
             d3.select("#sample-metadata").append("p").text(`${key}: ${value}`);
         });
+
+        // BONUS: gauge chart to plot the weekly washing frequency of the individual
+        var gaugedata = [
+            {
+                domain: { x: [0, 1], y: [0, 1] },
+                value: 9,
+                title: { text: "Belly Button Washing Frequency" },
+                type: "indicator",
+                mode: "gauge+number"
+            }
+        ];
+
+        Plotly.newPlot("gauge", gaugedata);
 
     });
 }
