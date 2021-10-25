@@ -69,7 +69,7 @@ function optionChanged(value) {
             {
                 domain: { x: [0, 1], y: [0, 1] },
                 value: metadata.wfreq,
-                title: { text: "<span style='font-size: 20px;'>Belly Button Washing Frequency</span><br> Scrubs per Week" },
+                title: { text: "<span style='font-size: 20px;'>Belly Button Washing Frequency</span><br> (Scrubs per Week)" },
                 type: "indicator",
                 mode: "gauge+number",
                 gauge: {
