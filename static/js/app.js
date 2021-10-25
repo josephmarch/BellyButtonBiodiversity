@@ -17,30 +17,34 @@ function optionChanged(value) {
         }));
 
         // Sort the samples from largest to smallest
-        samples.sample_values.sort(function compareFunction(firstNum, secondNum) {
+        samples[0].sample_values.sort(function compareFunction(firstNum, secondNum) {
             // resulting order is (3, 2, 1)
             return secondNum - firstNum;
         });
         console.log(samples);
 
+        // Create slices of 10 values for the bar graph and reverse them
+        sample_values = samples[0].sample_values.slice(0, 10).reverse();
+        otu_ids = samples[0].otu_ids.slice(0, 10).reverse();
+        otu_labels = samples[0].otu_labels.slice(0, 10).reverse();
+
+        // Horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual
+        var bardata = [{
+            type: 'bar',
+            x: sample_values,
+            y: otu_ids,
+            orientation: 'h',
+            hoverinfo: "text",
+            hovertext: otu_labels
+          }];
+        
+          Plotly.newPlot("bar", bardata);
 
         // Select Demographic Info
         //var demographicInfo = d3.select("sample-metadata").text(metadata);
 
 
     });
-
-    // Horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual
-    // var bardata = [{
-    //     type: 'bar',
-    //     x: sample_values,
-    //     y: otu_ids,
-    //     orientation: 'h',
-    //     hoverinfo: "text",
-    //     hovertext: otu_labels
-    //   }];
-      
-    //   Plotly.newPlot("bar", bardata);
 }
 
 // Use the D3 library to read in samples.json and set up dropdown
