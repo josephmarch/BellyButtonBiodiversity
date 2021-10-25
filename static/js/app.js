@@ -7,10 +7,15 @@ d3.json("samples.json").then(function(data) {
     // Select Dropdown
     var dropdown = d3.select("#selDataset");
 
-    // Provide data to dorpdown
+    // Provide data to dropdown
     data.names.forEach(function(name){
         dropdown.append("option").text(name);
     });
+
+    //function for what to do when dropdown is changed
+    function optionChanged(value) {
+
+    }
 
     // Select Demographic Info
     var demographicInfo = d3.select("sample-metadata");
