@@ -40,7 +40,8 @@ function optionChanged(value) {
         
           Plotly.newPlot("bar", bardata);
 
-        // Select Demographic Info using key-value pairs
+        // Select Demographic Info and clear it then fill it in using key-value pairs
+        d3.select("#sample-metadata").html("");
         Object.entries(metadata).forEach(([key, value]) => {
             d3.select("#sample-metadata").append("p").text(`${key}: ${value}`);
         });
