@@ -38,11 +38,11 @@ function optionChanged(value) {
         
           Plotly.newPlot("bar", bardata);
 
-        // Select Demographic Info and clear it, then fill it using key/value pairs
+        // Select Demographic Info and clear it, then fill it using key-value pairs
         var demographicInfo = d3.select("sample-metadata");
         demographicInfo.html("");
-        Object.entries(metadata[0]).forEach(function(item){
-            return demographicInfo.append("p").text(`${item[0]}: ${item[1]}`);
+        Object.entries(metadata[0]).forEach(function([key, value]) {
+            demographicInfo.append("p").text(`${key}: ${value}`);
         });
 
     });
