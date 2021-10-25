@@ -38,7 +38,26 @@ function optionChanged(value) {
             hovertext: otu_labels
           }];
         
-          Plotly.newPlot("bar", bardata);
+        Plotly.newPlot("bar", bardata);
+
+
+        // Bubble chart that displays each sample
+        var bubbledata = [{
+            x: samples.otu_ids,
+            y: samples.sample_values,
+            mode: "markers",
+            marker: {
+                size: samples.sample_values,
+                color: samples.otu_ids,
+            },
+            text: samples.otu_labels
+        }];
+        var bubblelayout = {
+            xaxis: { title: "OTU ID" }
+        };
+
+        Plotly.newPlot("bubble", bubbledata, bubblelayout);
+
 
         // Select Demographic Info and clear it then fill it in using key-value pairs
         d3.select("#sample-metadata").html("");
