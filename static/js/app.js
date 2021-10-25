@@ -42,7 +42,7 @@ function optionChanged(value) {
 
         // Select Demographic Info using key-value pairs
         Object.entries(metadata).forEach(([key, value]) => {
-            d3.select("sample-metadata").append("p").text(`${key}: ${value}`);
+            d3.select("#sample-metadata").append("p").text(`${key}: ${value}`);
         });
 
     });
