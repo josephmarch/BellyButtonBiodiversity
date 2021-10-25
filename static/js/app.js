@@ -41,7 +41,7 @@ function optionChanged(value) {
         // Select Demographic Info and clear it, then fill it using key-value pairs
         var demographicInfo = d3.select("sample-metadata");
         demographicInfo.html("");
-        Object.entries(metadata[0]).forEach(function([key, value]) {
+        Object.entries(metadata[0]).forEach(([key, value]) => {
             demographicInfo.append("p").text(`${key}: ${value}`);
         });
 
