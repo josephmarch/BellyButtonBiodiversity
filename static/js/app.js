@@ -42,7 +42,7 @@ function optionChanged(value) {
         var demographicInfo = d3.select("sample-metadata");
         demographicInfo.html("");
         Object.entries(metadata[0]).forEach(function(item){
-            demographicInfo.append("p").text(`${item[0]}: ${item[1]}`);
+            return demographicInfo.append("p").text(`${item[0]}: ${item[1]}`);
         });
 
     });
