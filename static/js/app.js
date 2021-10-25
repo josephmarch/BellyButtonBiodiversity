@@ -15,10 +15,17 @@ function optionChanged(value) {
         samples = Object.values(data.samples.filter(function(sample) {
             return sample.id.toString() == value;
         }));
+
+        // Sort the samples from largest to smallest
+        samples.sample_values.sort(function compareFunction(firstNum, secondNum) {
+            // resulting order is (3, 2, 1)
+            return secondNum - firstNum;
+        });
         console.log(samples);
 
+
         // Select Demographic Info
-        //var demographicInfo = d3.select("sample-metadata");
+        //var demographicInfo = d3.select("sample-metadata").text(metadata);
 
 
     });
