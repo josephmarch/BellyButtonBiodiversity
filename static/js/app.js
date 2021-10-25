@@ -1,12 +1,8 @@
 // Use the D3 library to read in samples.json
-var sample_values = [];
-var otu_ids = [];
-var otu_labels = [];
-
 d3.json("samples.json").then(function(data) {
     console.log(data);
     samples = Object.values(data.samples);
-    console.log(sample_values);
+    console.log(samples);
 });
 
 // Horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual
