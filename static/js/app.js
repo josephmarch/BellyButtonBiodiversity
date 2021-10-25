@@ -9,7 +9,6 @@ function optionChanged(value) {
         metadata = Object.values(data.metadata.filter(function(metaid) {
             return metaid.id.toString() == value;
         }));
-        console.log(metadata);
 
         // Pull the samples for a particular id matching our value
         samples = Object.values(data.samples.filter(function(sample) {
@@ -21,7 +20,6 @@ function optionChanged(value) {
             // resulting order is (3, 2, 1)
             return secondNum - firstNum;
         });
-        console.log(samples);
 
         // Create slices of 10 values for the bar graph and reverse them
         sample_values = samples[0].sample_values.slice(0, 10).reverse();
@@ -32,7 +30,7 @@ function optionChanged(value) {
         var bardata = [{
             type: 'bar',
             x: sample_values,
-            y: otu_ids,
+            y: otu_ids.map(function(id){return `OTU ${id}`;}),
             orientation: 'h',
             hoverinfo: "text",
             hovertext: otu_labels
@@ -40,9 +38,12 @@ function optionChanged(value) {
         
           Plotly.newPlot("bar", bardata);
 
-        // Select Demographic Info
-        //var demographicInfo = d3.select("sample-metadata").text(metadata);
-
+        // Select Demographic Info and clear it, then fill it using key/value pairs
+        var demographicInfo = d3.select("sample-metadata");
+        demographicInfo.html("");
+        Object.entries(metadata[0]).forEach(function([key, value]){
+            demographicInfo.append("h4").text(`${key}: ${value}`);
+        });
 
     });
 }
