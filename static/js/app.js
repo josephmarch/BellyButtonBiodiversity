@@ -1,11 +1,11 @@
 // Use the D3 library to read in samples.json
 d3.json("samples.json").then(function(data) {
     console.log(data);
-    sample_values = data.samples;
+    sample_values = Object.values(data.samples);
     console.log(sample_values);
-    otu_ids = data.names;
+    otu_ids = Object.values(data.names);
     console.log(otu_ids);
-    otu_labels = data.metadata;
+    otu_labels = Object.values(data.metadata);
     console.log(otu_labels);
 });
 
