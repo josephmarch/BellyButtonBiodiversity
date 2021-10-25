@@ -68,10 +68,24 @@ function optionChanged(value) {
         var gaugedata = [
             {
                 domain: { x: [0, 1], y: [0, 1] },
-                value: 9,
-                title: { text: "Belly Button Washing Frequency" },
+                value: metadata.wfreq,
+                title: { text: "<span style='font-size: 20px;'>Belly Button Washing Frequency</span><br> Scrubs per Week" },
                 type: "indicator",
-                mode: "gauge+number"
+                mode: "gauge+number",
+                gauge: {
+                    axis: { range: [null, 9]},
+                    steps: [
+                        {range: [0, 1], color: "rgb(210,250,210)"},
+                        {range: [1, 2], color: "rgb(190,250,190)"},
+                        {range: [2, 3], color: "rgb(170,250,170)"},
+                        {range: [3, 4], color: "rgb(150,250,150)"},
+                        {range: [4, 5], color: "rgb(130,250,130)"},
+                        {range: [5, 6], color: "rgb(110,250,110)"},
+                        {range: [6, 7], color: "rgb(90,250,90)"},
+                        {range: [7, 8], color: "rgb(70,250,70)"},
+                        {range: [8, 9], color: "rgb(50,250,50)"}
+                    ]
+                }
             }
         ];
 
