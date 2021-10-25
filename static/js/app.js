@@ -14,6 +14,7 @@ d3.json("samples.json").then(function(data) {
 
     //function for what to do when dropdown is changed
     function optionChanged(value) {
+        console.log(value);
 
     }
 
