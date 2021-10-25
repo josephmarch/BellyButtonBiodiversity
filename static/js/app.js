@@ -1,4 +1,8 @@
 // Use the D3 library to read in samples.json
+var sample_values = [];
+var otu_ids = [];
+var otu_labels = [];
+
 d3.json("samples.json").then(function(data) {
     console.log(data);
     sample_values = Object.values(data.samples);
