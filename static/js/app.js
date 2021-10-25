@@ -1,9 +1,12 @@
 // Function called by Test Subject ID Number changes
 function optionChanged(value) {
     console.log(value);
+    
+    // Select Demographic Info
+    //var demographicInfo = d3.select("sample-metadata");
 }
 
-// Use the D3 library to read in samples.json
+// Use the D3 library to read in samples.json and set up dropdown
 d3.json("samples.json").then(function(data) {
     console.log(data);
     samples = Object.values(data.samples);
@@ -17,14 +20,13 @@ d3.json("samples.json").then(function(data) {
         dropdown.append("option").text(name);
     });
 
+
+    // create the initial plots and demographic information using the optionChanged function
+    optionChanged("940");
+
     //function for what to do when dropdown is changed
-    d3.selectAll("#selDataset").on("change", optionChanged(this.value));
+    //d3.selectAll("#selDataset").on("change", optionChanged(this.value));
 
-    // On change to the Test Subject ID Number, call optionChanged(this.value)
-    //d3.selectAll("#selDataset").on("change", getData);
-
-    // Select Demographic Info
-    var demographicInfo = d3.select("sample-metadata");
 });
 
 
