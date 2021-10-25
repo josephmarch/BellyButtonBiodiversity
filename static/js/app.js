@@ -32,11 +32,6 @@ d3.json("samples.json").then(function(data) {
         dropdown.append("option").text(name);
     });
 
-
     // create the initial plots and demographic information using the optionChanged function
     optionChanged("940");
-
-    //function for what to do when dropdown is changed
-    //d3.selectAll("#selDataset").on("change", optionChanged(this.value));
-
 });
